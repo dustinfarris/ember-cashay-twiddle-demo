@@ -1,4 +1,4 @@
-# Ember-cashay-twiddle-demo
+# ember-cashay-twiddle-demo
 
 This is a wrapper addon for [ember-cashay](https://github.com/dustinfarris/ember-cashay)!
 
