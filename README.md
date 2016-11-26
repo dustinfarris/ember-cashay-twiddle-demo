@@ -1,27 +1,24 @@
 # Ember-cashay-twiddle-demo
 
-This README outlines the details of collaborating on this Ember addon.
+This is a wrapper addon for [ember-cashay](https://github.com/dustinfarris/ember-cashay)!
 
-## Installation
+[See it live!](https://ember-twiddle.com/f2a8a4123c65c4871a885444978efe65?openFiles=components.users-list.js%2C&route=%2Fusers)
 
-* `git clone <repository-url>` this repository
-* `cd ember-cashay-twiddle-demo`
-* `npm install`
-* `bower install`
 
-## Running
+## Why a wrapper addon?
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+When you add an addon to Twiddle, it spawns a Docker container (via Amazon ECS) that installs the addon in a blank Ember project.  The project is then built and persisted to Amazon S3.  That's the end of the story.  Any usage of the addon from that point on will reference the pre-built resource.
 
-## Running Tests
+For simple addons, this works out great: the addon is only built once, so reloads are fast since Twiddle is _only rebuilding the application code_.
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+However, for more complex addons—any addon that affects the build itself (via broccoli and friends)—this is problematic.  The vanilla project with the addon is built without any notion of an app-specific config, file structure, assets, etc.  It can then be confusing to add the addon to Twiddle, adjust an ENV config, and see nothing change.
 
-## Building
+The workaround for this is and addon _wrapper_.  The wrapper adds a default blueprint that injects "app-specific" files and configs.  While these injected files and configs will not be modifyable in Twiddle, it at least gives us the ability to create a demo of our addons without hacking the crap out of the addon itself.
 
-* `ember build`
 
-For more information on using ember-cli, visit [http://ember-cli.com/](http://ember-cli.com/).
+## Specifically
+
+- This addon specifies a default blueprint
+- The default blueprint brings in the target addon via `addPackagesToProject`
+- The default blueprint creates files (that will be consumed by the target addon's build via `treeForApp`).  These files are specific to a scenario appropriate for a Twiddle demonstration
+
