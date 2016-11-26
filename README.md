@@ -13,7 +13,7 @@ For simple addons, this works out great: the addon is only built once, so reload
 
 However, for more complex addons—any addon that affects the build itself (via broccoli and friends)—this is problematic.  The vanilla project with the addon is built without any notion of an app-specific config, file structure, assets, etc.  It can then be confusing to add the addon to Twiddle, adjust an ENV config, and see nothing change.
 
-The workaround for this is and addon _wrapper_.  The wrapper adds a default blueprint that injects "app-specific" files and configs.  While these injected files and configs will not be modifyable in Twiddle, it at least gives us the ability to create a demo of our addons without hacking the crap out of the addon itself.
+The workaround for this is an addon _wrapper_.  The wrapper adds a default blueprint that injects "app-specific" files and configs.  While these injected files and configs will not be modifyable in Twiddle, it at least gives us the ability to create a demo of our addons without hacking the crap out of the addon itself.
 
 
 ## Specifically
