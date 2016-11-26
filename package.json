@@ -1,7 +1,7 @@
 {
   "name": "ember-cashay-twiddle-demo",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "ember-cashay Twiddle demo",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,7 +11,7 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "https://github.com/dustinfarris/ember-cashay-twiddle-demo",
   "engines": {
     "node": ">= 0.12.0"
   },
