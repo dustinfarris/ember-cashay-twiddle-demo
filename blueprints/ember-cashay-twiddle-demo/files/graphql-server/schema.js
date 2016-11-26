@@ -37,6 +37,12 @@ export default function(graphql) {
   const queryType = new GraphQLObjectType({
     name: 'RootQuery',
     fields: () => ({
+      hello: {
+        type: GraphQLString,
+        resolve() {
+          return 'world';
+        }
+      },
       users: {
         type: new GraphQLList(User),
         resolve: (_parent, _args, { mirage }) => {
