@@ -7,7 +7,7 @@ This is a wrapper addon for [ember-cashay](https://github.com/dustinfarris/ember
 
 ## Why a wrapper addon?
 
-When you add an addon to Twiddle, it spawns a Docker container (via Amazon ECS) that installs the addon in a _blank Ember project_.  The project is then built and persisted to Amazon S3.  That's the end of the story.  Any usage of the addon from that point on will reference the pre-built resource (whatever ended up in vendor.js).
+When you add an addon to Twiddle (in twiddle.json), it spawns a Docker container (via Amazon ECS) that installs the addon in a _blank Ember project_.  The project is then built and persisted to Amazon S3.  That's the end of the story.  Any usage of the addon from that point on will reference the pre-built resource (whatever ended up in vendor.js).
 
 For simple addons, this works out great: the addon is only built once, so reloads are fast since Twiddle is _only reloading the application code_.
 
