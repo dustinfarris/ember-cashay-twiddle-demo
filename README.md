@@ -26,7 +26,7 @@ After the project is built, the dist is persisted to Amazon S3.  That's the end 
 
 For simple addons, this works out great: the addon is only built once, so reloads are fast since Twiddle is _only reloading the application code_.
 
-However, for more complex addons—any addon that affects the build itself (via broccoli and friends)—this is problematic.  The vanilla project with the addon is built without any notion of an app-specific config, file structure, assets, etc.  It can then be confusing to add the addon to Twiddle, adjust an ENV config, or add files that your addon should move or transform, and see _nothing change._
+However, for more complex addons—any addon that affects the build itself (via broccoli and friends), or if you want to demo multiple addons together—this is problematic.  The vanilla project with the addon is built without any notion of an app-specific config, file structure, assets, etc.  It can then be confusing to add the addon to Twiddle, adjust an ENV config, or add files that your addon should move or transform, and see _nothing change._
 
 The workaroundish for this is an addon _wrapper_.  The wrapper adds a default blueprint that injects "app-specific" files and configs.  While these injected files and configs _will not be modifyable_ in Twiddle, it at least gives us the ability to create a demo of our addons without hacking the crap out of the addon itself.
 
@@ -34,6 +34,6 @@ The workaroundish for this is an addon _wrapper_.  The wrapper adds a default bl
 ## Specifically
 
 - This addon specifies a default blueprint
-- The default blueprint brings in the target addon via `addPackagesToProject`
+- The default blueprint brings in the target addon(s) via `addAddonsToProject`
 - The default blueprint creates files (that will be consumed by the target addon's build via `treeForApp`).  These files are specific to a scenario appropriate for a Twiddle demonstration
 
